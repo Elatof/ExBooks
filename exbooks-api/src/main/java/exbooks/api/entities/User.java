@@ -3,6 +3,7 @@ package exbooks.api.entities;
 public class User {
     private Long id;
     private String email;
+    private String phone;
     private String password;
     private String firstName;
     private String surname;
@@ -10,6 +11,14 @@ public class User {
 
     public Long getId() {
         return id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setId(Long id) {

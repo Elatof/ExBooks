@@ -2,12 +2,22 @@ package exbooks.api.models;
 
 public class UserRegRequest {
     private String email;
+    private String phone;
     private String password;
     private String firstName;
     private String surname;
 
+
     public String getEmail() {
         return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public void setEmail(String email) {

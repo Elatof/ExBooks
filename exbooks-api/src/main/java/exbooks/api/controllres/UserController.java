@@ -25,6 +25,7 @@ public class UserController {
 
         User newUser = new User();
         newUser.setEmail(regRequest.getEmail());
+        newUser.setPhone(regRequest.getPhone());
         newUser.setPassword(regRequest.getPassword());
         newUser.setFirstName(regRequest.getFirstName());
         newUser.setSurname(regRequest.getSurname());
