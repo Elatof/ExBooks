@@ -7,5 +7,6 @@ CREATE TABLE "user"
 "first_name" VARCHAR(255) NOT NULL,
 "sur_name" VARCHAR(255) NOT NULL,
 "is_active" BOOLEAN NOT NULL,
-CONSTRAINT pk_user_id PRIMARY KEY("id")
+CONSTRAINT pk_user_id PRIMARY KEY("id"),
+CONSTRAINT uk_email UNIQUE ("email")
 )
