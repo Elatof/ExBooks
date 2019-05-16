@@ -11,7 +11,7 @@ public class UserRepositoryImpl implements UserRepository {
     private static final String DB_USER = "postgres";
     private static final String DB_PASSWORD = "023843";
 
-    private static final String INSERT_USER_SQL = "INSERT INTO \"user\" (email, phone, password, first_name, sur_name, is_active) VALUES (?, ?, ?, ?,?,?) RETURNING id";
+    private static final String INSERT_USER_SQL = "INSERT INTO \"user\" (email, phone, password, first_name, surname, is_active) VALUES (?, ?, ?, ?,?,?) RETURNING id";
 
     public User insert(User user) throws Exception {
         try (Connection dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER,DB_PASSWORD)) {

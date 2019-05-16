@@ -5,10 +5,7 @@ import exbooks.api.models.UserRegRequest;
 import exbooks.api.models.UserRegResponse;
 import exbooks.api.repositories.UserRepository;
 import exbooks.api.repositories.impl.UserRepositoryImpl;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -30,7 +27,7 @@ public class UserController {
         newUser.setFirstName(regRequest.getFirstName());
         newUser.setSurname(regRequest.getSurname());
         newUser.setActive(true);
-
+        System.out.println("User:"+newUser.getEmail());
         User insertedUser = this.userRepository.insert(newUser);
 
         UserRegResponse regResponse = new UserRegResponse();
@@ -38,5 +35,4 @@ public class UserController {
 
         return regResponse;
     }
-
 }

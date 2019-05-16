@@ -15,8 +15,16 @@ class SignUpForm extends Component{
     
         this.handleChange = this.handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        console.log("[SignUpForm] constructor");
     }
-    
+    componentDidMount() {
+      console.log("[SignUpForm] componentDidMount");
+    }
+  
+    componentWillUnmount() {
+      console.log("[SignUpForm] componentWillUnmount");
+    }
     handleChange(e) {
         let target = e.target;
         let value = target.type === 'checkbox' ? target.checked : target.value;
@@ -41,13 +49,10 @@ class SignUpForm extends Component{
     });
     }
 render(){
+  console.log("[SignUpForm] render"); 
     return(
 <div >
     <form onSubmit={this.onSubmit}>
-
-                
-              
-
                 <div>
                     <label  htmlFor="email">Email</label>
                     <input type="email" id="email" placeholder="Enter your full email" name="email" value={this.state.email} onChange={this.handleChange}/>
