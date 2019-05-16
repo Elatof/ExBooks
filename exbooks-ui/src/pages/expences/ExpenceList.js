@@ -44,7 +44,6 @@ class ExpenceList extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>User</th>
                         <th>Book</th>
                         <th>Date</th>

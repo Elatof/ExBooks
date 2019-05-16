@@ -53,6 +53,7 @@ public class BookRepositoryImpl implements BookRepository {
                 }
             }
         }
+
         return entity;
     }
 
@@ -82,7 +83,7 @@ public class BookRepositoryImpl implements BookRepository {
         statement.setString(3, entity.getDescription());
         statement.setString(4, entity.getAuthor());
         statement.setDate(5, Date.valueOf(entity.getYear()));
-    }
+}
 
     public static void main(String[] args) throws SQLException {
         new BookRepositoryImpl().insert(new BookEntity(0,"The song of ice and fire Part3","fantasy","","R. Martin",

@@ -20,7 +20,6 @@ class ExpenceItem extends Component {
         const item = this.props.item;
         return (
             <tr key={ item.id }>
-                <td>{ item.id }</td>
                 <td>{ item.user }</td>
                 <td>{ item.book }</td>
                 <td>{ item.announceTimestamp }</td>

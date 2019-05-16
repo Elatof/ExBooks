@@ -27,7 +27,7 @@ public class UserController {
         newUser.setFirstName(regRequest.getFirstName());
         newUser.setSurname(regRequest.getSurname());
         newUser.setActive(true);
-        System.out.println("User:"+newUser.getEmail());
+        //System.out.println("User:"+newUser.getEmail());
         User insertedUser = this.userRepository.insert(newUser);
 
         UserRegResponse regResponse = new UserRegResponse();

@@ -6,6 +6,7 @@ import SignInForm from './pages/SignInForm.js';
 import NotFound from './pages/NotFound';
 import main from './pages/main';
 import ExpenceList from './pages/expences/ExpenceList';
+import NewBook from './pages/NewBook';
 
 class App extends Component {
   constructor(){
@@ -27,7 +28,7 @@ class App extends Component {
           <div>
             <h1>EXBooks</h1>
             <div>
-            <NavLink exact to ="/">Main</NavLink>   <NavLink to ="/sign-in">Sign in</NavLink>   <NavLink to ="/sign-up">Sign up</NavLink>  <NavLink exact to ="/books">Books</NavLink> 
+            <NavLink exact to ="/">Main</NavLink>   <NavLink to ="/sign-in">Sign in</NavLink>   <NavLink to ="/sign-up">Sign up</NavLink>  <NavLink exact to ="/books">Books</NavLink>   <NavLink exact to ="/newbook">Add Book</NavLink>
             </div>
             <Switch>
 
@@ -35,6 +36,7 @@ class App extends Component {
               <Route  path="/sign-up" component={SignUpForm}/>
               <Route path="/sign-in" component={SignInForm}/> 
               <Route path="/books" component={ExpenceList}/> 
+              <Route path="/newbook" component={NewBook}/> 
               <Route component={NotFound} /> 
             </Switch>
           </div>  
