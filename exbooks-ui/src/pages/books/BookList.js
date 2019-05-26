@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import ExpenceItem from './ExpenceItem';
+import BookItem from './BookItem';
 
-class ExpenceList extends Component {
+class BookList extends Component {
       
     constructor() {
         super();
-        console.log("[ExpenceList] constructor");
+        console.log("[BookList] constructor");
         this.state = {
             items:[]
         };
     }
 
     componentDidMount() {
-        console.log("[ExpenceList] componentDidMount");
+        console.log("[BookList] componentDidMount");
         let initialItems = [];
         fetch('http://localhost:8080/api/announce')
             .then(response => {
@@ -21,9 +21,7 @@ class ExpenceList extends Component {
             }).then(data => {
                 console.log(data)
                 initialItems = data.map((planet) => {
-               
-                return planet
-            });
+                return planet});
 
             this.setState({
                 items: initialItems,
@@ -32,11 +30,11 @@ class ExpenceList extends Component {
     }
     
     componentWillUnmount() {
-        console.log("[ExpenceList] componentWillUnmount");
+        console.log("[BookList] componentWillUnmount");
     }
 
     render() {
-        console.log("[ExpenceList] render");
+        console.log("[BookList] render");
 
          
 
@@ -47,12 +45,14 @@ class ExpenceList extends Component {
                         <th>User</th>
                         <th>Book</th>
                         <th>Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                 {
-                    this.state.items.map(item => <ExpenceItem item={ item } />)
                     
+                    this.state.items.map(item => <BookItem item={ item } />)
+                   
                 }
                 </tbody>
             </table>
@@ -60,4 +60,4 @@ class ExpenceList extends Component {
     }
 }
 
-export default ExpenceList;
+export default BookList;

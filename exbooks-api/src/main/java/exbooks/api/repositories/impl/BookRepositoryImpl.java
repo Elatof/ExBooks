@@ -31,7 +31,7 @@ public class BookRepositoryImpl implements BookRepository {
             while (resultSet.next()) {
                 entities.add(parseResultSet(resultSet));
             }
-        } catch (SQLException e) {
+        } catch (SQLException e) {//не тре
             e.printStackTrace();
         }
         return entities;
@@ -44,8 +44,7 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public BookEntity insert(BookEntity entity) throws SQLException {
-        try (Connection connection = ConnectionManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement(CREATE)) {
+        try (Connection connection = ConnectionManager.getConnection(); PreparedStatement statement = connection.prepareStatement(CREATE)) {
             setPreparedStatementData(statement, entity);
             try (ResultSet generatedKeys = statement.executeQuery()) {
                 if (generatedKeys.next()) {

@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 @RestController
 @CrossOrigin
 public class BookController {
+
     private final BookRepository bookRepository;
     @Autowired
     AnnounceBoardRepositoryImpl announceBoardRepository;
@@ -38,7 +39,7 @@ public class BookController {
         BookEntity insertedBook=this.bookRepository.insert(newBook);
         BookRegResponse regResponse= new BookRegResponse();
         regResponse.setBookId(insertedBook.getId());
-        ListController a =new ListController();
+        //ListController a =new ListController();
         add_to_board(insertedBook);
 
 
@@ -48,7 +49,8 @@ public class BookController {
         AnnounceBoardEntity new_book= new AnnounceBoardEntity();
         new_book.setUserId(23);
         new_book.setBookId(entity.getId());
-        new_book.setAnnounceTimestamp(LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        new_book.setAnnounceTimestamp(now);
         AnnounceBoardEntity inserted_element=this.announceBoardRepository.insert(new_book);
         return new_book;
     }

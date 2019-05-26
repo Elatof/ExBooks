@@ -48,7 +48,7 @@ class SignInForm extends Component{
                 </div>
             
                 <div>
-                  <button>Sign in</button>
+                  <button >Sign in</button>
                   <hr></hr>
                   <Link to="/">Create an account</Link>
                 </div>

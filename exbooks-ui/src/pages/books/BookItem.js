@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-class ExpenceItem extends Component {
+import {Link} from 'react-router-dom';
+class BookItem extends Component {
 
     constructor() {
         super();
-        console.log("[ExpenceItem] constructor");
+        console.log("[BookItem] constructor");
     }
 
     componentDidMount() {
-        console.log("[ExpenceItem] componentDidMount");
+        console.log("[BookItem] componentDidMount");
     }
 
     componentWillUnmount() {
-        console.log("[ExpenceItem] componentWillUnmount");
+        console.log("[BookItem] componentWillUnmount");
     }
 
     render() {
-        console.log("[ExpenceItem] render");        
+        console.log("[BookItem] render");        
 
         const item = this.props.item;
         return (
@@ -23,8 +24,9 @@ class ExpenceItem extends Component {
                 <td>{ item.user }</td>
                 <td>{ item.book }</td>
                 <td>{ item.announceTimestamp }</td>
+                <td><Link to={"/details/" +item.id}>Details</Link></td>
             </tr>
         );
     }
 }
-export default ExpenceItem;
+export default BookItem;

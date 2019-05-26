@@ -5,9 +5,9 @@ import SignUpForm from './pages/SignUpForm.js';
 import SignInForm from './pages/SignInForm.js';
 import NotFound from './pages/NotFound';
 import main from './pages/main';
-import ExpenceList from './pages/expences/ExpenceList';
+import BookList from './pages/books/BookList';
 import NewBook from './pages/NewBook';
-
+import Details from './pages/books/Details';
 class App extends Component {
   constructor(){
     super();
@@ -35,8 +35,9 @@ class App extends Component {
               <Route exact path="/" component={main}/>
               <Route  path="/sign-up" component={SignUpForm}/>
               <Route path="/sign-in" component={SignInForm}/> 
-              <Route path="/books" component={ExpenceList}/> 
+              <Route path="/books" component={BookList}/> 
               <Route path="/newbook" component={NewBook}/> 
+              <Route path='/details/:Id' component={Details} />
               <Route component={NotFound} /> 
             </Switch>
           </div>  
