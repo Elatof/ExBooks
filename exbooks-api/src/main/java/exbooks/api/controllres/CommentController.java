@@ -26,10 +26,12 @@ public class CommentController {
     @GetMapping(value = "/api/books/Comments/{idBook}/comment")
     public ResponseEntity<List<Comment>> comment(@PathVariable int idBook) throws SQLException {
         System.out.println("idbook="+idBook);
+       // int a = CommentsRepository.update(21,3);
         List<Comment> comments= CommentsRepository.get(idBook);
         if(comments.isEmpty()){
             comments.add(NoComment());
         }
+
         return new ResponseEntity<>(comments, HttpStatus.OK);
     }
 

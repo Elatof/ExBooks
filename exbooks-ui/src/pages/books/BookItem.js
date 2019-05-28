@@ -24,6 +24,7 @@ class BookItem extends Component {
                 <td>{ item.user }</td>
                 <td>{ item.book }</td>
                 <td>{ item.announceTimestamp }</td>
+                <td>{ item.accept}</td>
                 <td><Link to={"/details/" +item.id}>Details</Link></td>
             </tr>
         );

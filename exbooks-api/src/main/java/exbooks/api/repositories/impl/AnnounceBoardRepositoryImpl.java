@@ -15,18 +15,12 @@ import java.util.List;
 public class AnnounceBoardRepositoryImpl implements AnnounceBoardRepository {
     private static final String SELECT_ALL = "SELECT * FROM public.announce_board";
 
-    private static final String SELECT_ALL2 = "SELECT a.id, u.surname, b.name, a.announce_timestamp FROM public.announce_board a JOIN public.\"user\" u ON  a.user_id=u.id JOIN  public.\"book\" b ON a.book_id = b.id";
+    private static final String SELECT_ALL2 = "SELECT a.id, u.surname, b.name, a.announce_timestamp, a.accept FROM public.announce_board a JOIN public.\"user\" u ON  a.user_id=u.id JOIN  public.\"book\" b ON a.book_id = b.id";
 
     private static final String CREATE =
             "INSERT INTO public.announce_board (\"user_id\",\"book_id\",\"announce_timestamp\")\n" +
                     "VALUES(?,?,?) RETURNING id;";
 
-    public static void main(String[] args) throws SQLException {
-        new AnnounceBoardRepositoryImpl().insert(new AnnounceBoardEntity(0, 1, 1,
-                LocalDateTime.now()));
-        new AnnounceBoardRepositoryImpl().selectAll().forEach(System.out::println);
-
-    }
 
     @Override
     public AnnounceBoardEntity insert(AnnounceBoardEntity entity) throws SQLException {
@@ -105,8 +99,14 @@ public class AnnounceBoardRepositoryImpl implements AnnounceBoardRepository {
 
         Timestamp announceTS = resultSet.getTimestamp("announce_timestamp");
         LocalDateTime dt = announceTS==null?null:announceTS.toLocalDateTime();
+        String accept;
+        if( resultSet.getBoolean("accept")){
+             accept = "+";
+        }else{
+            accept ="-";
+        }
 
-        return new AnnounceDataResponse(id,user,book, dt);
+        return new AnnounceDataResponse(id,user,book, dt,accept);
     }
     private void setPreparedStatementData(PreparedStatement statement, AnnounceBoardEntity entity) throws SQLException {
         statement.setInt(1, entity.getUserId());

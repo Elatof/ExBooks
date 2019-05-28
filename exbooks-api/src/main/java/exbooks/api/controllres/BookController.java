@@ -39,7 +39,6 @@ public class BookController {
         BookEntity insertedBook=this.bookRepository.insert(newBook);
         BookRegResponse regResponse= new BookRegResponse();
         regResponse.setBookId(insertedBook.getId());
-        //ListController a =new ListController();
         add_to_board(insertedBook);
 
 
@@ -51,6 +50,7 @@ public class BookController {
         new_book.setBookId(entity.getId());
         LocalDateTime now = LocalDateTime.now();
         new_book.setAnnounceTimestamp(now);
+        new_book.setAccept("-");
         AnnounceBoardEntity inserted_element=this.announceBoardRepository.insert(new_book);
         return new_book;
     }
