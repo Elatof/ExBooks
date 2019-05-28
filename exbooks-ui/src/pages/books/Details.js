@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import {BrowserRouter as Router, Route,NavLink,Switch} from 'react-router-dom';
-import Comments from './Comments/CommentsList';
 import CommentsList from './Comments/CommentsList';
 
 class Details extends Component {
@@ -70,8 +69,8 @@ class Details extends Component {
               <b>Phone:</b>{this.state.Book.phoneUser}<br></br>
             </div>
             <hr></hr>
-            <NavLink to ="/comments">Comments:</NavLink>
-            <Route exact path="/comments" component={CommentsList}/>
+            <NavLink to ={"/comments/"+this.state.Book.idBook}>Comments:</NavLink>
+            <Route exact path="/comments/:idBook" component={CommentsList}/>
             </Router>
         );
     }

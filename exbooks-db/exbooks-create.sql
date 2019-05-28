@@ -33,3 +33,17 @@ CREATE TABLE "announce_board"
 	CONSTRAINT fk_book_id FOREIGN KEY("book_id") 
 	REFERENCES "book"("id")
 );
+CREATE TABLE "comment"
+(
+	"id" SERIAL NOT NULL,
+	"user_id" INTEGER NOT NULL,
+	"book_id" INTEGER NOT NULL,
+	"comment" VARCHAR(500) default 'not provided',
+	"accept"  BOOLEAN NOT NULL,
+	"announce_timestamp" TIMESTAMP NOT NULL,
+    CONSTRAINT pk_comment_id PRIMARY KEY ("id"),
+	CONSTRAINT fk_user_id FOREIGN KEY("user_id") 
+	REFERENCES "user"("id"),
+	CONSTRAINT fk_book_id FOREIGN KEY("book_id") 
+	REFERENCES "book"("id")
+);
