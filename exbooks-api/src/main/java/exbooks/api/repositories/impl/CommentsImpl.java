@@ -3,6 +3,8 @@ package exbooks.api.repositories.impl;
 import exbooks.api.ConnectionManager;
 import exbooks.api.entities.Comment;
 import exbooks.api.models.CommentAdd;
+import exbooks.api.models.CommentBook;
+import exbooks.api.models.CommentCheck;
 import exbooks.api.repositories.CommentsRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +15,52 @@ import java.util.List;
 @Repository
 public class CommentsImpl implements CommentsRepository {
     private static final String INSERT_USER_SQL = "INSERT INTO \"comment\" (user_id, book_id, comment, accept, announce_timestamp) VALUES (?, ?, ?, ?,?) RETURNING id";
+
+    @Override
+    public boolean check(int idComment) {
+        System.out.println("count"+count(getBookId(idComment)));
+        if(count(getBookId(idComment))>0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    int count (int bookId){
+        CommentCheck count=new CommentCheck();
+        try (Connection connection = ConnectionManager.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT COUNT(accept)\n" +
+                     "\tFROM public.comment \n" +
+                     "\tWHERE book_id="+bookId+"and accept=true\n" +
+                     "\t");
+        )
+        { while (resultSet.next()) {
+            count.setAccept(resultSet.getInt("count"));
+        }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count.getAccept();
+    }
+    int getBookId(int commentId){
+        CommentBook id_book=new CommentBook();
+        try (Connection connection = ConnectionManager.getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery("SELECT c.book_id\n" +
+                     "\tFROM public.comment c\n" +
+                     "\tWHERE id="+commentId);
+        )
+        { while (resultSet.next()) {
+            id_book.setBook_id(resultSet.getInt("book_id"));
+        }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id_book.getBook_id();
+    }
+
     @Override
     public CommentAdd insert(CommentAdd comment)throws SQLException {
         try (Connection dbConnection = ConnectionManager.getConnection()) {
@@ -35,10 +83,19 @@ public class CommentsImpl implements CommentsRepository {
     }
 
     @Override
-    public int update(int idBook, int idComment)throws SQLException {
+    public int updateBook(int idComment) throws SQLException {
+        Connection connection = ConnectionManager.getConnection();
+        Statement statement = connection.createStatement();
+        int resultSet = statement.executeUpdate("UPDATE public.announce_board SET  accept=true WHERE book_id="+getBookId(idComment));
+        return resultSet;
+
+    }
+
+    @Override
+    public int update(int idComment)throws SQLException {
         Connection connection = ConnectionManager.getConnection();
              Statement statement = connection.createStatement();
-             int resultSet = statement.executeUpdate("UPDATE public.comment SET  accept=false WHERE book_id=21 and id=3;");
+             int resultSet = statement.executeUpdate("UPDATE public.comment SET  accept=true WHERE id="+idComment);
         return resultSet;
     }
 

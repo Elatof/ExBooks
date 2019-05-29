@@ -46,6 +46,7 @@ class CommentsList extends Component {
                         <th>Date</th>
                         <th>Comment</th>
                         <th>Accept</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

@@ -21,9 +21,22 @@ public class CommentController {
     @Autowired
     CommentsImpl CommentsRepository;
 
+    @PutMapping("/api/comment/{id}/accept")
+    public void accept(@PathVariable int id)throws Exception{
+        System.out.println("CommentId="+id);
+
+       if( CommentsRepository.check(id)){
+            CommentsRepository.update(id);
+            CommentsRepository.updateBook(id);
+       }
+
+    }
+
+
+
     @PostMapping("/api/comment/{idBook}/register")
     public CommentRegResponse register(@RequestBody CommentRegRequest regRequest, @PathVariable int idBook) throws Exception {
-        System.out.println("228"+idBook);
+
         CommentAdd newComment=new CommentAdd();
     newComment.setBook_id(idBook);
     newComment.setUser_id(24);
@@ -40,7 +53,6 @@ public class CommentController {
     }
     @GetMapping(value = "/api/books/Comments/{idBook}/comment")
     public ResponseEntity<List<Comment>> comment(@PathVariable int idBook) throws SQLException {
-        System.out.println("idbook="+idBook);
        // int a = CommentsRepository.update(21,3);
         List<Comment> comments = CommentsRepository.get(idBook);
         if(comments.isEmpty()){
