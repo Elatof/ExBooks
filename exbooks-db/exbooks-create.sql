@@ -27,6 +27,7 @@ CREATE TABLE "announce_board"
 	"user_id" INTEGER NOT NULL,
 	"book_id" INTEGER NOT NULL,
 	"announce_timestamp" TIMESTAMP NOT NULL,
+	"accept"  BOOLEAN NOT NULL,
     CONSTRAINT pk_announce_board_id PRIMARY KEY ("id"),
 	CONSTRAINT fk_user_id FOREIGN KEY("user_id") 
 	REFERENCES "user"("id"),
