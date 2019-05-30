@@ -3,8 +3,6 @@ package exbooks.api.repositories.impl;
 import exbooks.api.ConnectionManager;
 import exbooks.api.entities.Comment;
 import exbooks.api.models.CommentAdd;
-import exbooks.api.models.CommentBook;
-import exbooks.api.models.CommentCheck;
 import exbooks.api.repositories.CommentsRepository;
 import org.springframework.stereotype.Repository;
 
@@ -26,7 +24,7 @@ public class CommentsImpl implements CommentsRepository {
         }
     }
     int count (int bookId){
-        CommentCheck count=new CommentCheck();
+        int count=0;
         try (Connection connection = ConnectionManager.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT COUNT(accept)\n" +
@@ -35,16 +33,16 @@ public class CommentsImpl implements CommentsRepository {
                      "\t");
         )
         { while (resultSet.next()) {
-            count.setAccept(resultSet.getInt("count"));
+            count=resultSet.getInt("count");
         }
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return count.getAccept();
+        return count;
     }
     int getBookId(int commentId){
-        CommentBook id_book=new CommentBook();
+       int book_id=0;
         try (Connection connection = ConnectionManager.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT c.book_id\n" +
@@ -52,13 +50,13 @@ public class CommentsImpl implements CommentsRepository {
                      "\tWHERE id="+commentId);
         )
         { while (resultSet.next()) {
-            id_book.setBook_id(resultSet.getInt("book_id"));
+            book_id =resultSet.getInt("book_id");
         }
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-        return id_book.getBook_id();
+        return book_id;
     }
 
     @Override

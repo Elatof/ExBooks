@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-
+import './AddComment.css';
 class AddComment extends Component{
     constructor() {
         super();
@@ -50,11 +50,10 @@ class AddComment extends Component{
     <form onSubmit={this.onSubmit}>
                 
                 <div >
-                    <label htmlFor="Comment"></label>
-                    <input type="text" id="comment"  placeholder="Enter comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
+                    <input className="addComment" type="text" id="comment"  placeholder="Enter comment" name="comment" value={this.state.comment} onChange={this.handleChange}/>
                 </div> 
                 
-                  <button>Add</button>
+                  <button className='addComment'>Add</button>
                 
     </form>
     </div>

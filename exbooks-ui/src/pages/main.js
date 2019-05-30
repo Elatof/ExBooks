@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './main.css';
 class main extends React.Component {
 
     constructor() {
@@ -18,11 +18,12 @@ class main extends React.Component {
     render() {
         console.log("[Main] render");        
         return (
-        <div>
-        EXBooks-платформа для обміну книжками
-        <h5>КН-203 Корб'як Максим</h5>
+        <div className="main">
+        EXBooks-платформа для обміну книжками <br></br>
+        КН-203 Корб'як Максим
+        </div>
         
-        </div>);
+        );
     }
 
 }

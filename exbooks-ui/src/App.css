@@ -20,7 +20,26 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #15fa00;
+}
+body {
+  background-color: lightblue;
+}
+
+a.app:link, a:visited {
+  background-color: rgb(0, 38, 255);
+  color: white;
+  padding: 5px 10px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+a.app:hover, a:active {
+  background-color: rgb(19, 51, 231);
+}
+h1.app{
+  background-color: rgb(0, 38, 255);
+  color: white;
 }
 
 @keyframes App-logo-spin {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookItem from './BookItem';
-
+import './BookList.css'
 class BookList extends Component {
       
     constructor() {
@@ -39,6 +39,7 @@ class BookList extends Component {
          
 
         return (
+            <div className="BookList">
             <table>
                 <thead>
                     <tr>
@@ -57,6 +58,7 @@ class BookList extends Component {
                 }
                 </tbody>
             </table>
+            </div>
         );
     }
 }

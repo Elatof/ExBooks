@@ -26,12 +26,11 @@ class App extends Component {
         <Router>
         <div className="App">
           <div>
-            <h1>EXBooks</h1>
-            <div>
-            <NavLink exact to ="/">Main</NavLink>   <NavLink to ="/sign-in">Sign in</NavLink>   <NavLink to ="/sign-up">Sign up</NavLink>  <NavLink exact to ="/books">Books</NavLink>   <NavLink exact to ="/newbook">Add Book</NavLink>
+            <h1 className="app">EXBooks</h1>
+            <div  >
+            <NavLink  className="app" exact to ="/">Main</NavLink>   <NavLink className="app" to ="/sign-in">Sign in</NavLink>   <NavLink className="app" to ="/sign-up">Sign up</NavLink>  <NavLink className="app" exact to ="/books">Books</NavLink>   <NavLink className="app" exact to ="/newbook">Add Book</NavLink>
             </div>
             <Switch>
-
               <Route exact path="/" component={main}/>
               <Route  path="/sign-up" component={SignUpForm}/>
               <Route path="/sign-in" component={SignInForm}/> 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CommentItem.css';
 class CommentItem extends Component {
 
     constructor() {
@@ -40,7 +41,7 @@ class CommentItem extends Component {
                 <td>{ item.timestamp }</td>
                 <td>{ item.comment}</td>
                 <td>{ item.accept}</td>
-                <td><button onClick={(e) => this.onAccept(item.id, e)}>Accept</button></td>
+                <td><button className="accept" onClick={(e) => this.onAccept(item.id, e)}>Accept</button></td>
             </tr>
         );
     }

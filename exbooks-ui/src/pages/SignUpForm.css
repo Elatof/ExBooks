@@ -1,0 +1,54 @@
+div.signup{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    background:  rgb(0, 38, 255);
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+}
+input.signup, select {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input.signup{
+    width: 15%;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input:hover {
+    background-color: lightblue;
+  }
+
+  button.Button {
+	background-color:#ffffff;
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:28px;
+	border:1px solid lightblue;
+	display:inline-block;
+	cursor:pointer;
+	color:#474343;
+	font-family:Arial;
+	font-size:10px;
+	padding:15px 36px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+button.Button:hover {
+	background-color:lightblue;
+}
+button.Button:active {
+	position:relative;
+	top:1px;
+}

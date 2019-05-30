@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
+import './NewBook.css';
 class NewBook extends Component{
     constructor() {
         super();
@@ -45,45 +45,39 @@ class NewBook extends Component{
         "content-type" : "application/json"
       },
       body: JSON.stringify(this.state)
-    });
+    }
+    );
     }
 render(){
   console.log("[NewBook] render"); 
     return(
-<div >
-<form onSubmit={this.onSubmit}>
-  <div>
-  <label  htmlFor="name">Name</label>
-  <input type="text" id="name" placeholder="Enter name" name="name" value={this.state.name} onChange={this.handleChange}/>  
-  </div> 
+<div className="newBook" >
+  <form onSubmit={this.onSubmit}>
+    <div>
+    <input className="newBook" type="text" id="name" placeholder="Enter name" name="name" value={this.state.name} onChange={this.handleChange}/>  
+    </div> 
 
-  <div>
-  <label  htmlFor="genre">Genre</label>
-  <input type="text" id="genre" placeholder="Enter genre" name="genre" value={this.state.genre} onChange={this.handleChange}/>  
-  </div>  
+    <div>
+    <input className="newBook" type="text" id="genre" placeholder="Enter genre" name="genre" value={this.state.genre} onChange={this.handleChange}/>  
+    </div>  
 
-  <div>
-  <label  htmlFor="description">Description</label>
-  <input type="text" id="description" placeholder="Enter short description" name="description" value={this.state.description} onChange={this.handleChange}/>  
-  </div>  
+    <div>
+    <input className="newBook" type="text" id="description" placeholder="Enter short description" name="description" value={this.state.description} onChange={this.handleChange}/>  
+    </div>  
 
-  <div>
-  <label  htmlFor="author">Author</label>
-  <input type="text" id="author" placeholder="Enter author" name="author" value={this.state.author} onChange={this.handleChange}/>  
-  </div>  
+    <div>
+    <input className="newBook" type="text" id="author" placeholder="Enter author" name="author" value={this.state.author} onChange={this.handleChange}/>  
+    </div>  
 
-  <div>
-  <label  htmlFor="year">Year</label>
-  <input type="text" id="year" placeholder="Enter year" name="year" value={this.state.year} onChange={this.handleChange}/>  
-  </div>  
-
-  <h1></h1>
-                
-                <div>
-                  <button>Add book</button>
-                  <hr></hr>
-                </div>
-</form>
+    <div>
+    <input className="newBook" type="text" id="year" placeholder="Enter year" name="year" value={this.state.year} onChange={this.handleChange}/>  
+    </div>  
+      <br></br>
+        <div>
+              <button className="newBook">Add book</button>
+        </div>
+      <br></br>
+  </form>
 </div>
 );
 }

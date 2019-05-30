@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import './BookItem.css'
 class BookItem extends Component {
 
     constructor() {
@@ -25,7 +26,7 @@ class BookItem extends Component {
                 <td>{ item.book }</td>
                 <td>{ item.announceTimestamp }</td>
                 <td>{ item.accept}</td>
-                <td><Link to={"/details/" +item.id}>Details</Link></td>
+                <td><Link className="BookItem" to={"/details/" +item.id}>Details</Link></td>
             </tr>
         );
     }

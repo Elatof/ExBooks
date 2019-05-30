@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route,NavLink,Switch} from 'react-router-dom';
 import CommentsList from './Comments/CommentsList';
 import AddComment from './Comments/AddComment';
-
+import './Details.css';
 class Details extends Component {
     
     constructor() {
@@ -53,10 +53,9 @@ class Details extends Component {
     render() {
         console.log("[Details] render");        
         return (
+            <div className="Detail">
             <Router>
             <div>
-
-                <hr></hr>
                 <b>Book:</b>{this.state.Book.nameBook}<br></br>
                <b>Genre:</b>{this.state.Book.genreBook}<br></br>
          <b>Description:</b>{this.state.Book.descriptionBook}<br></br>
@@ -74,6 +73,7 @@ class Details extends Component {
             <Route exact path="/addComments/:idBook" component={AddComment}/>
             <Route exact path="/comments/:idBook" component={CommentsList}/>
             </Router>
+            </div>
         );
     }
 }
